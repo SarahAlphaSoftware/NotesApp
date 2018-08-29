@@ -1,0 +1,711 @@
+
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-user-select: none; }
+
+button::-moz-focus-inner {
+border-width: 0;
+padding: 0;
+}
+
+a {
+color: #000;
+}
+
+ul {
+font: 16px "Comic Sans MS", Noteworthy, sans-serif;
+list-style: none;
+margin: 0px;
+padding: 0px;
+}
+li {
+background: url(listCheckOff.png) left no-repeat;
+padding: 8px;
+padding-left: 36px;
+clear: both;
+}
+li.checked {
+background: url(listCheckOn.png) left no-repeat;
+}
+
+
+.NotesAppPanelHeader {
+color: #eee;
+text-shadow: 0px -2px #000;
+background: #555 url(headerBack.png);
+background-size: 100% 100%;
+border-top: #777 1px solid;
+border-bottom: #333 1px solid;
+padding: 2px 4px;
+height: 44px;
+box-shadow: inset 0px -2px 0px -1px #777;
+-moz-box-shadow: inset 0px -2px 0px -1px #777;
+-webkit-box-shadow: inset 0px -2px 0px -1px #777;
+}
+.NotesAppPanelHeader .A5CWLayout { padding: 0px;}
+
+.NotesAppPanelFooter {
+background: #555 url(headerBack.png);
+background-size: 100% 100%;
+border-bottom: #777 1px solid;
+border-top: #333 1px solid;
+padding: 2px 4px;
+height: 44px;
+box-shadow: inset 0px 2px 0px -1px #777;
+-moz-box-shadow: inset 0px 2px 0px -1px #777;
+-webkit-box-shadow: inset 0px 2px 0px -1px #777;
+}
+.NotesAppPanelFooter .A5CWLayout { padding: 0px;}
+
+.NotesAppPanelHeader .NotesAppButton, .NotesAppPanelFooter .NotesAppButton, .NotesAppImgButton {
+padding: 0px;
+margin: 0px;
+background: transparent;
+border: none;
+}
+.NotesAppPanelHeader .NotesAppButtonPressed, .NotesAppPanelFooter .NotesAppButtonPressed, .NotesAppImgButtonPressed {
+background: url(headerButtonPressed.png);
+background-size: 100% 100%;
+}
+
+
+.NotesAppTitle {
+font: 20px Arial, Tahoma;
+font-weight: bold;
+text-align: center;
+padding: 12px;
+}
+
+/* Notes Panel */
+.NotesAppPanel {
+font: 16px Arial, Tahoma;
+color: #000;
+}
+.NotesAppPanel:before {
+content: "";
+display: block;
+position: absolute;
+top: 0px;
+left: -16px;
+width: 16px;
+height: 100%;
+background: url(notesBorder.png) right repeat-y;
+}
+.NotesAppPanelBody {
+background: #4d4d4d;
+}
+.NotesAppNBoardPanelBody>div { /* selector to make corkboard scroll with notes */
+position: relative;
+background: url(corkBoard.jpg);
+min-height: 100%;
+}
+.NotesAppNBoardPanelBody>div:before {
+content: "";
+display: block;
+position: absolute;
+top: -17px;
+left: 0px;
+width: 100%;
+height: 15px;
+background: url('pineTex.png');
+border-top: #e8ceaf 1px solid;
+border-bottom: #996a34 1px solid;
+}
+.NotesAppNBoardPanelBody>div:after {
+content: "";
+display: block;
+position: absolute;
+bottom: -17px;
+left: 0px;
+width: 100%;
+height: 15px;
+background: url('pineTex.png');
+border-top: #e8ceaf 1px solid;
+border-bottom: #996a34 1px solid;
+}
+.NotesAppNBoardPanelBody .NotesAppScrollIndV {
+background: transparent;
+}
+
+.NotesAppTrashPanelBody>div { /* selector to make corkboard scroll with notes */
+position: relative;
+background: url('trashBack.jpg');
+min-height: 100%;
+}
+.NotesAppTrashPanelBody>div:before {
+content: "";
+display: block;
+position: absolute;
+top: -17px;
+left: 0px;
+width: 100%;
+height: 15px;
+background: url('metalTex.jpg');
+background-size: 100% 100%;
+border-top: #afafaf 1px solid;
+border-bottom: #4b4b4b 1px solid;
+}
+.NotesAppTrashPanelBody>div:after {
+content: "";
+display: block;
+position: absolute;
+bottom: -17px;
+left: 0px;
+width: 100%;
+height: 15px;
+background: url('metalTex.jpg');
+background-size: 100% 100%;
+border-top: #afafaf 1px solid;
+border-bottom: #4b4b4b 1px solid;
+}
+.NotesAppTrashPanelBody .NotesAppScrollIndV {
+background: transparent;
+}
+
+
+/* Boards Panel */
+.NotesAppBoardsPanel {
+font: 16px Arial, Tahoma;
+font-weight: bold;
+color: #fff;
+text-shadow: 0px 2px #2e2e2e;
+background: #4d4d4d;
+}
+
+.NotesAppBoardsList {
+background: #4d4d4d;
+border: 1px solid #252525;
+border-radius: 4px;
+}
+.NotesAppBoardsListItem {
+padding: 12px 18px;
+cursor: default;
+color: #ddd;
+background: #555;
+border-bottom: #363636 1px solid;
+border-top: #757575 1px solid;
+outline: none;
+}
+.NotesAppBoardsListItemSelected {
+color: #fff;
+background: #444 url(boardItemSelected.png) top repeat-x;
+background-size: 100% 100%;
+border-bottom: #252525 1px solid;
+border-top: #757575 1px solid;
+}
+.NotesAppBoardsListItem img {
+margin: -12px 4px -12px -14px;
+vertical-align: middle;
+}
+.NotesAppBoardsListTitle {
+font: 14px Arial, Tahoma;
+font-weight: bold;
+padding: 4px 8px;
+color: #aaa;
+background: #5f5f5f;
+border: none;
+border-bottom: #363636 1px solid;
+border-top: #757575 1px solid;
+margin: 0px;
+}
+.NotesAppBoardsListFooter {
+padding: 12px;
+text-align: center;
+background: url(boardFooterShadow.png) top repeat-x;
+}
+.NotesAppBoardsListFooter button {
+font: 16px Arial, Tahoma;
+font-weight: bold;
+padding: 6px 18px;
+color: #ddd;
+text-shadow: 0px 2px #2e2e2e;
+margin-left: -6px;
+background: #444 url(boardItemSelected.png) top repeat-x;
+background-size: 100% 100%;
+border: 1px solid #252525;
+border-radius: 16px;
+box-shadow: inset 0px 0px 0px 1px #656565;
+-moz-box-shadow: inset 0px 0px 0px 1px #656565;
+-webkit-box-shadow: inset 0px 0px 0px 1px #656565;
+outline: none;
+}
+
+/* Notes */
+.NotesAppNoteToolbar {
+position: absolute;
+left: -100px;
+padding: 0px 4px;
+background: rgba(0,0,0,.35);
+border-radius: 6px;
+z-index: 2;
+}
+.NotesAppNoteToolbar .A5CWLayout { padding: 2px 4px;}
+
+.NotesAppNoteListNoData {
+font: 16px Arial, Tahoma;
+color: #fff;
+text-align: center;
+background: rgba(0,0,0,.35);
+border-radius: 6px;
+padding: 10px;
+}
+
+.NotesAppNoteListHeader {
+background: url('pineTex.png');
+border-top: #e8ceaf 1px solid;
+border-bottom: #996a34 1px solid;
+padding: 6px;
+}
+
+.NotesAppNoteListItem {
+padding: 4px 20px 46px 20px;
+cursor: default;
+outline: none;
+z-index: 1;
+}
+
+.NotesAppNoteContent {
+padding: 6px;
+}
+.NotesAppNoteDeadline {
+font: 14px "Comic Sans MS", Noteworthy, sans-serif;
+padding: 6px;
+padding-bottom: 0px;
+opacity: .75;
+}
+
+.NotesAppNoteRed, .NotesAppNoteBlue, .NotesAppNoteGreen, .NotesAppNoteOrange, .NotesAppNoteYellow, .NotesAppNotePurple, .NotesAppNoteWhite {
+position: relative;
+font: 16px "Comic Sans MS", Noteworthy, sans-serif;
+margin: 14px;
+margin-left: auto;
+margin-right: auto;
+max-width: 500px;
+}
+.NotesAppNoteRed .NotesAppNoteTitle, .NotesAppNoteBlue .NotesAppNoteTitle, .NotesAppNoteGreen .NotesAppNoteTitle, .NotesAppNoteOrange .NotesAppNoteTitle, .NotesAppNoteYellow .NotesAppNoteTitle, .NotesAppNotePurple .NotesAppNoteTitle, .NotesAppNoteWhite .NotesAppNoteTitle {
+color: #000;
+font-weight: bold;
+padding: 4px;
+}
+.NotesAppNBoardPanelBody .NotesAppNoteRed:before, .NotesAppNBoardPanelBody .NotesAppNoteBlue:before, .NotesAppNBoardPanelBody .NotesAppNoteGreen:before, .NotesAppNBoardPanelBody .NotesAppNoteOrange:before, .NotesAppNBoardPanelBody .NotesAppNoteYellow:before, .NotesAppNBoardPanelBody .NotesAppNotePurple:before, .NotesAppNBoardPanelBody .NotesAppNoteWhite:before {
+content: "";
+display: block;
+position: absolute;
+width: 30px;
+height: 30px;
+top: -8px;
+left: 50%;
+margin-left: -15px;
+background: url(thumbTack.png) no-repeat;
+background-size: 100% 100%;
+}
+
+.NotesAppTrashPanelBody .NotesAppNoteRed:before, .NotesAppTrashPanelBody .NotesAppNoteBlue:before, .NotesAppTrashPanelBody .NotesAppNoteGreen:before, .NotesAppTrashPanelBody .NotesAppNoteOrange:before, .NotesAppTrashPanelBody .NotesAppNoteYellow:before, .NotesAppTrashPanelBody .NotesAppNotePurple:before, .NotesAppTrashPanelBody .NotesAppNoteWhite:before {
+content: "";
+display: block;
+position: absolute;
+width: 7px;
+height: 7px;
+top: 5px;
+left: 50%;
+margin-left: -3px;
+background: url(tackHole.png) no-repeat;
+background-size: 100% 100%;
+}
+
+
+.NotesAppNoteRed {
+color: #000;
+background-color: #ffa092;
+}
+.NotesAppNoteRed .NotesAppNoteTitle {
+color: #4f0800;
+background-color: #ff6251;
+}
+.NotesAppNoteRed:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteRed.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNoteBlue {
+color: #000;
+background-color: #92cbff;
+}
+.NotesAppNoteBlue .NotesAppNoteTitle {
+color: #001d4f;
+background-color: #6dabff;
+}
+.NotesAppNoteBlue:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteBlue.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNoteGreen {
+color: #000;
+background-color: #daff92;
+}
+.NotesAppNoteGreen .NotesAppNoteTitle {
+color: #394f00;
+background-color: #b3ff51;
+}
+.NotesAppNoteGreen:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteGreen.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNoteOrange {
+color: #000;
+background-color: #ffb375;
+}
+.NotesAppNoteOrange .NotesAppNoteTitle {
+color: #000;
+background-color: #ff9f51;
+}
+.NotesAppNoteOrange:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteOrange.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNoteYellow {
+color: #000;
+background-color: #fff092;
+}
+.NotesAppNoteYellow .NotesAppNoteTitle {
+color: #000;
+background-color: #ffe751;
+}
+.NotesAppNoteYellow:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteYellow.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNotePurple {
+color: #000;
+background-color: #e192ff;
+}
+.NotesAppNotePurple .NotesAppNoteTitle {
+color: #000;
+background-color: #ae51ff;
+}
+.NotesAppNotePurple:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(notePurple.png) no-repeat;
+background-size: 100% 100%;
+}
+.NotesAppNoteWhite {
+color: #000;
+background-color: #f7f7f7;
+}
+.NotesAppNoteWhite .NotesAppNoteTitle {
+color: #000;
+background-color: #ededed;
+}
+.NotesAppNoteWhite:after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 22px;
+bottom: -20px;
+left: 0px;
+background: url(noteWhite.png) no-repeat;
+background-size: 100% 100%;
+}
+
+/* Edit Panel & Controls */
+
+.NotesAppEdit {
+font: 16px "Comic Sans MS", Noteworthy, sans-serif;
+color: #000;
+background: transparent;
+border: none;
+padding: 16px;
+}
+.NotesAppEditWatermark {
+opacity: .5;
+}
+
+.NotesAppEditPanelHeader .NotesAppEdit { font-weight: bold; }
+
+.NotesAppEditPanelHeader {
+font: 16px Arial, Tahoma;
+color: #000;
+height: 50px;
+}
+.NotesAppEditPanelHeader .A5CWLayout { padding: 0px;}
+.NotesAppEditPanelBody {
+font: 16px Arial, Tahoma;
+color: #000;
+}
+.NotesAppEditPanelFooter {
+font: 16px Arial, Tahoma;
+color: #000;
+background: #555 url(headerBack.png) top repeat-x;
+background-size: 100% 100%;
+border-bottom: #777 1px solid;
+border-top: #333 1px solid;
+padding: 6px;
+box-shadow: inset 0px 2px 0px -1px #777;
+-moz-box-shadow: inset 0px 2px 0px -1px #777;
+-webkit-box-shadow: inset 0px 2px 0px -1px #777;
+}
+.NotesAppEditPanelFooter button {
+font: 16px Arial, Tahoma;
+font-weight: bold;
+padding: 6px 18px;
+color: #ddd;
+text-shadow: 0px 2px #2e2e2e;
+background: #444 url(boardItemSelected.png) top repeat-x;
+background-size: 100% 100%;
+border: 1px solid #252525;
+border-radius: 16px;
+box-shadow: inset 0px 0px 0px 1px #656565;
+-moz-box-shadow: inset 0px 0px 0px 1px #656565;
+-webkit-box-shadow: inset 0px 0px 0px 1px #656565;
+outline: none;
+} 
+.NotesAppEditPanelBody>div {
+background: transparent;
+}
+
+.NotesAppEditPanelRed .NotesAppEditPanelHeader {
+background-color: #ff6251;
+}
+.NotesAppEditPanelRed .NotesAppEditPanelBody {
+background-color: #ffa092;
+}
+
+.NotesAppEditPanelBlue .NotesAppEditPanelHeader {
+background-color: #6dabff;
+}
+.NotesAppEditPanelBlue .NotesAppEditPanelBody {
+background-color: #92cbff;
+}
+
+.NotesAppEditPanelGreen .NotesAppEditPanelHeader {
+background-color: #b3ff51;
+}
+.NotesAppEditPanelGreen .NotesAppEditPanelBody {
+background-color: #daff92;
+}
+
+.NotesAppEditPanelOrange .NotesAppEditPanelHeader {
+background-color: #ff9f51;
+}
+.NotesAppEditPanelOrange .NotesAppEditPanelBody {
+background-color: #ffb375;
+}
+
+.NotesAppEditPanelYellow .NotesAppEditPanelHeader {
+background-color: #ffe751;
+}
+.NotesAppEditPanelYellow .NotesAppEditPanelBody {
+background-color: #fff092;
+}
+
+.NotesAppEditPanelPurple .NotesAppEditPanelHeader {
+background-color: #ae51ff;
+}
+.NotesAppEditPanelPurple .NotesAppEditPanelBody {
+background-color: #e192ff;
+}
+
+.NotesAppEditPanelWhite .NotesAppEditPanelHeader {
+background-color: #ededed;
+}
+.NotesAppEditPanelWhite .NotesAppEditPanelBody {
+background-color: #f7f7f7;
+}
+
+/* Window */
+.NotesAppWin {
+font: 16px Arial, Tahoma;
+color: #fff;
+background: rgba(0,0,0,.65);
+border: #333 1px solid;
+border-top: none;
+border-radius: 0px 0px 6px 6px;
+box-shadow: 0px 0px 25px #000;
+-moz-box-shadow: 0px 0px 25px #000;
+-webkit-box-shadow: 0px 0px 25px #000;
+}
+.NotesAppWinWrapper {
+border: #777 1px solid;
+border-bottom-color: #aaa;
+border-top: none;
+border-radius: 0px 0px 5px 5px;
+}
+.NotesAppWinTitle {
+font: 18px Arial, Tahoma;
+font-weight: bold;
+text-align: center;
+color: #eee;
+text-shadow: 0px 1px #000;
+background: #555 url(headerBack.png) top repeat-x;
+background-size: 100% 100%;
+border-top: #777 1px solid;
+border-bottom: #333 1px solid;
+padding: 14px;
+text-align: center;
+box-shadow: inset 0px -2px 0px -1px #777;
+-moz-box-shadow: inset 0px -2px 0px -1px #777;
+-webkit-box-shadow: inset 0px -2px 0px -1px #777;
+}
+.NotesAppWinBody {
+padding: 6px;
+}
+.NotesAppWinButtons {
+padding: 6px;
+text-align: center;
+}
+.NotesAppWin button {
+font: 16px Arial, Tahoma;
+font-weight: bold;
+padding: 6px 18px;
+width: 95px;
+color: #ddd;
+text-shadow: 0px 2px #2e2e2e;
+background: #444 url(boardItemSelected.png) top repeat-x;
+background-size: 100% 100%;
+border: 1px solid #252525;
+border-radius: 16px;
+box-shadow: inset 0px 0px 0px 1px #656565;
+-moz-box-shadow: inset 0px 0px 0px 1px #656565;
+-webkit-box-shadow: inset 0px 0px 0px 1px #656565;
+outline: none;
+}
+.NotesAppWin  .NotesAppEdit {
+font: 16px Arial, Tahoma;
+color: #eee;
+background: rgba(30,30,30,.8);
+border: #222 1px solid;
+border-radius: 6px;
+box-shadow: inset 0px 0px 0px 1px #494949;
+-moz-box-shadow: inset 0px 0px 0px 1px #494949;
+-webkit-box-shadow: inset 0px 0px 0px 1px #494949;
+padding: 6px 12px;
+}
+
+.NotesAppColorListItem {
+padding: 20px;
+cursor: default;
+outline: none;
+z-index: 1;
+}
+.NotesAppColorListItem>div {
+transform: scale(.9,.9);
+-moz-transform: scale(.9,.9);
+-o-transform: scale(.9,.9);
+-webkit-transform: scale(.9,.9);
+}
+.NotesAppColorListItemSelected>div {
+transform: scale(1,1);
+-moz-transform: scale(1,1);
+-o-transform: scale(1,1);
+-webkit-transform: scale(1,1);
+}
+
+/* Spin List */
+.NotesAppSpinListGroup {
+font: 0px Arial;
+position: relative;
+white-space: nowrap;
+display: inline-block;
+font-weight: bold;
+text-shadow: 0px 1px #000;
+background: #555;
+background-size: 100% 100%;
+border: #111 1px solid;
+border-radius: 4px;
+padding: 0px;
+}
+.NotesAppSpinListSep {
+vertical-align: middle;
+padding: 2px;
+border-right: #111 1px solid;
+}
+.NotesAppSpinList {
+font: 16px Arial, Tahoma;
+display: inline-block;
+width: 48px;
+background: #555;
+background-size: 100% 100%;
+border-right: #111 1px solid;
+cursor: default;
+vertical-align: top;
+}
+.NotesAppSpinListGroup .NotesAppSpinList:last-child {
+border: none;
+}
+.NotesAppSpinList:after {
+content: "";
+display: block;
+position: absolute;
+top: 0px;
+left:0px;
+background: url(spinListShadow.png);
+background-size: 100% 100%;
+width: 100%;
+height: 100%;
+}
+.NotesAppSpinListItem {
+font-weight: bold;
+text-align: center;
+padding: 2px;
+}
+
+/* Scroll Indicator */
+.NotesAppScrollIndH, .NotesAppScrollIndV {
+height: 5px;
+width: 5px;
+padding: 0px;
+margin: 0px 2px;
+border-radius: 6px;
+}
+.NotesAppBoardsPanel .NotesAppScrollIndV {
+margin-right: 6px;
+}
+.NotesAppScrollIndHBar, .NotesAppScrollIndVBar {
+background: #000;
+opacity: .5;
+border-radius: 6px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+}
+.NotesAppBoardsPanel .NotesAppScrollIndVBar, .NotesAppWin .NotesAppScrollIndVBar, .NotesAppWin .NotesAppScrollIndHBar {
+background: #fff;
+}
