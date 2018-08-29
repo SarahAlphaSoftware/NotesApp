@@ -10,7 +10,7 @@ A 'Notes' application was originally released in May, 2013. A number of changes 
 
 ## NotesApp Overview
 
-The original overview for this app can be viewed here: [Sample 'Notes' Applicatoin - Overview](http://www.viddler.com/v/406e547d).
+The original overview for this app can be viewed here: [Sample 'Notes' Application - Overview](http://www.viddler.com/v/406e547d).
 
 ## NotesApp Styling
 
